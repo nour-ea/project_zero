@@ -16,6 +16,7 @@ public class WebConfiguration implements WebMvcConfigurer {
         messageSource.setBasename("classpath:validation");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
+        //comment
     }
   
 }
