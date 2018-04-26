@@ -12,8 +12,8 @@ import com.platformia.bringsouvenir.service.UserDetailsServiceImpl;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-//comment
-	   @Autowired
+
+	@Autowired
 	   UserDetailsServiceImpl userDetailsService;
 	 
 	   @Bean
