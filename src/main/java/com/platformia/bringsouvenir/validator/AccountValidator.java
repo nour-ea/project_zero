@@ -14,7 +14,7 @@ import com.platformia.bringsouvenir.form.AccountForm;
 @Component
 public class AccountValidator implements Validator {
  
-	//comment
+	//comment wahou
 	
     // common-validator library.
     private EmailValidator emailValidator = EmailValidator.getInstance();
