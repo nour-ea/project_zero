@@ -67,14 +67,13 @@ public class AccountRESTController {
 		String message = "default message de mierda";
 		List<String> errors = new ArrayList<String>();
 		
-		System.out.println("(Service Side) Creating 	account with userName: " + accountForm.getUserName());
-
-		Account newAccount = new Account(accountForm, Account.ROLE_SELLER);
 		// Validate result
 		if (!result.hasErrors()) {
+			System.out.println("(Service Side) Creating 	account with userName: " + accountForm.getUserName());
+			Account newAccount = new Account(accountForm, Account.ROLE_SELLER);
 			accountDAO.create(newAccount);
 			// Send email link for email validation
-			// sendValidationemail
+			// @sendValidationemail
 			//---
 			//send confirmation
 			httpStatus = HttpStatus.OK;

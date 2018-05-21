@@ -34,7 +34,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	   @Override
 	   protected void configure(HttpSecurity http) throws Exception {
 	 
+		  //protect against Cross Site Request Forgery
 	      http.csrf().disable();
+	      
 	 
 	      // Requires login with role ROLE_CLIENT, ROLE_SELLER, or ROLE_ADMIN.
 	      // If not, it will redirect to /admin/login.

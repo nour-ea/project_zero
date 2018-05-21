@@ -3,7 +3,7 @@ package com.platformia.bringsouvenir.form;
 public class AccountForm {
 
     private String userName;
- 
+    
     private String password;
     
     private String confirmPassword;

@@ -1,47 +1,140 @@
-<div class="header-container"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
- 
-   <div class="site-name">Bring a Souvenir</div>
-   
-   <div class="header-bar">
-      <th:block sec:authorize="isAuthenticated()">
-         Hello
-         <a th:href="@{/admin/accountInfo}" th:utext="${#request.userPrincipal.name}">..</a>
-         &nbsp;|&nbsp;
-         <a th:href="@{/admin/logout}">Logout</a>
-      </th:block>
-       
-      <th:block sec:authorize="!isAuthenticated()">
-         <a th:href="@{/admin/login}">Login</a>
-      </th:block>
-   </div>
-   
-</div>
 
-<div class="menu-container"
-   xmlns:th="http://www.thymeleaf.org"
-   xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4" >
-   <a th:href="@{/}">Home</a>
-   |
-   <a th:href="@{/productsList}">
-   Trouver un Souvenir
-   </a>
-   |
-   <a th:href="@{/shoppingCart}">
-   Mon Panier
-   </a>
-   |
-   <th:block sec:authorize="hasAnyRole('ROLE_MANAGER','ROLE_EMPLOYEE')">
-      <a th:href="@{/admin/orderList}">
-      Commandes
-      </a>
-      |
-   </th:block>
-   <th:block sec:authorize="hasRole('ROLE_MANAGER')">
-      <a th:href="@{/admin/product}">
-      Créer un produit
-      </a>
-      |
-   </th:block>
-</div>
+      <!--top bar-->
+      <nav id="top_nav" class="navbar navbar-expand-lg navbar-dark bg-black"
+      	xmlns:th="http://www.thymeleaf.org"
+      	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+
+        <div class="collapse navbar-collapse" id="">
+          <ul class="navbar-nav mr-auto">
+            <i class="nav-link oi oi-envelope-closed mini-icons"></i>
+            <a class="nav-link microtext" href="#">service@bringasouvenir.com</a>
+            <i class="nav-link oi oi-headphones mini-icons"></i>
+            <a class="nav-link microtext" href="#">0033 06 01 01 19 19</a>
+          </ul>
+
+          <ul class="navbar-nav mr-auto">
+            <a href="#" class="nav-link"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="#" class="nav-link"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="#" class="nav-link"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+            <a href="#" class="nav-link"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+          </ul>
+
+          <ul class="navbar-nav ml-auto luxtext">
+
+            <li>
+              <div class="nav-link dropdown" id="currency" value="$ EUR">
+              <a class="nav-link" href="#">$ EUR</a>
+                <div class="dropdown-content">
+                  <a href="#" class="dropdown-item small" value="$ USD">$ USD</a>
+                  <a href="#" class="dropdown-item small" value="$ EUR">€ EUR</a>
+                  <a href="#" class="dropdown-item small" value="£ UKP">£ UKP</a>
+                  <a href="#" class="dropdown-item small" value="¥ JPY">¥ JPY</a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="nav-link dropdown" id="language" value="Français">
+                <a class="nav-link"><img src="/img/flags/FR.png" alt="Français"></a>
+                <div class="dropdown-content">
+                  <a class="dropdown-item small" value="English"><img src="/img/flags/GB.png" alt="English"></a>
+                  <a class="dropdown-item small" value="Français"><img src="/img/flags/FR.png" alt="Français"></a>
+                  <a class="dropdown-item small" value="Deutsch"><img src="/img/flags/DE.png" alt="Deutsch"></a>
+                  <a class="dropdown-item small" value="Italiano"><img src="/img/flags/IT.png" alt="Italiano"></a>
+                </div>
+              </div>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+
+
+      <!--main navigation bar-->
+      <nav id="main_nav" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand text-primary" id="brand" href="#">Bring a Souvenir</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto luxtext">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Trouver un souvenir</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Maroquinerie</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Tapisserie</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Vêtement</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Catégories</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Comment ça marche ?</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Blog</a>
+            </li>
+          </ul>
+
+          <ul class="navbar-nav ml-auto" style="font-size:28px">
+            <a href="#" class="nav-link"><i class="p-1 text-primary fa fa-search" aria-hidden="true"></i> </a>
+            
+            <div class="nav-link dropdown">
+            <a href="#"><i class="p-1 text-primary fa fa-user" aria-hidden="true"></i></a>
+            
+			      <th:block sec:authorize="isAuthenticated()">
+						<div class="dropdown-content">
+			                <a href="#" class="dropdown-item small">Welcome 
+			                		<a th:href="@{/admin/accountInfo}" th:utext="${#request.userPrincipal.name}">..</a>
+			         		</a>
+			                <hr>
+			                <a href="#" class="dropdown-item small">Profile</a>
+			                <a href="#" class="dropdown-item small">Settings</a>
+			                <a th:href="@{/admin/logout}" class="dropdown-item small">Logout</a>
+			              </div>
+			      </th:block>  
+			      <th:block sec:authorize="!isAuthenticated()">
+						<div class="dropdown-content">
+			                <a href="/admin/login" class="dropdown-item small">Login</a>
+			                <a href="#" class="dropdown-item small">Register</a>
+			              </div>
+			      </th:block>              
+              
+             
+            </div>
+            
+            <div class="nav-link dropdown">
+            <a href="#"><i class="p-1 text-primary fa fa-shopping-cart" aria-hidden="true"></i></a>
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-item small">Your <strong>Reservations</strong></a>
+                <hr>
+                <a href="#" class="dropdown-item small">Article 1,     39$</a>
+                <a href="#" class="dropdown-item small">Article 2,     49$</a>
+                <a href="#" class="dropdown-item small">Article 3,     19$</a>
+                <hr>
+                <a href="#" class="btn btn-sm btn-primary w-100">Go to Validation</a>
+              </div>
+            </div>
+            
+            <div class="nav-link dropdown">
+            <a href="#"><i class="p-1 text-primary fa fa-heart" aria-hidden="true"></i></a>
+              <div class="dropdown-content">
+                <a href="#" class="dropdown-item small">Your <strong>Wishlist</strong></a>
+                <hr>
+                <a href="#" class="dropdown-item small">Article 1,     39$</a>
+                <a href="#" class="dropdown-item small">Article 2,     19$</a>
+                <a href="#" class="dropdown-item small">Article 3,     34$</a>
+                <hr>
+                <a href="#" class="btn btn-sm btn-primary w-100">See All</a>
+              </div>
+            </div>
+          </ul>
+
+        </div>
+      </nav>

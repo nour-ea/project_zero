@@ -1,7 +1,69 @@
-<div class="footer-container" xmlns:th="http://www.thymeleaf.org">
-  
-   @Copy right <a href="//o7planning.org" target="_blank">Bring a Souvenir</a>
-   <br>
-    by <a href="platformia.net">platformia.net</a>
-     
-</div>
+
+    <!--   main Footer ================== -->
+    <footer class="footer" xmlns:th="http://www.thymeleaf.org"
+      	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+      <div class="container">
+        <div class="row text-secondary">
+          <div class="col-sm-3">
+            <h4 class="title">A propos</h4>
+            B<a class="microtext">ring a Souvenir est une entreprise basée à Paris qui vise à simplifier la relation entre les touristes vivant en Europe et au USA et les Artisans des plus beaux pays touristiques.</a>
+            <ul class="social-icon">
+              <a href="#" class="nav-link"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+              <a href="#" class="nav-link"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+              <a href="#" class="nav-link"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+              <a href="#" class="nav-link"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+              <br>
+              <button class="btn btn-sm btn-light mt-2" href="#">Souscrir à la newsletter</button>
+            </ul>
+            <hr>
+          </div>
+          <div class="col-sm-2">
+          <th:block sec:authorize="isAuthenticated()">
+          	
+            <h4 class="title">My Account</h4>
+            <span class="acount-icon">
+              <a href="#"><i class="fa fa-user" aria-hidden="true"></i> Profil</a>
+              <a href="#"><i class="fa fa-shopping-cart" aria-hidden="true"></i>Panier</a>
+              <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Favoris</a>
+              <a href="#"><i class="fa fa-globe" aria-hidden="true"></i> Language</a>
+            </span>
+            <hr>
+          </th:block>
+          </div>
+          <div class="col-sm-4">
+            <h4 class="title">Catégories</h4>
+            <div class="category">
+              <a href="#">Maroquinerie</a>
+              <a href="#">Cuivre</a>
+              <a href="#">Potterie</a>
+              <a href="#">Tapisserie</a>
+              <a href="#">Vêtement</a>
+              <a href="#">Argenterie</a>
+              <a href="#">Potterie</a>
+              <a href="#">Meilleures Ventes</a>
+              <a href="#">Meilleurs Magasins</a>
+              <hr>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <h4 class="title">Nous contacter</h4>
+            <div class="d-inline">
+              <a class="microtext" href="#"><i class=" mr-2 oi oi-envelope-closed mini-icons"></i>service@bringasouvenir.com</a><br>
+              <a class="microtext" href="#"><i class=" mr-2 oi oi-headphones mini-icons"></i>0033 06 01 01 19 19</a>
+            </div>
+
+            <h4 class="title mt-4">Paiement</h4>
+            <ul class="payment ml-0 pl-0">
+              <li><a href="#"><i class="fa fa-cc-amex" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-paypal" aria-hidden="true"></i></a></li>
+              <li><a href="#"><i class="fa fa-cc-visa" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+        </div>
+        <hr>
+        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 mx-auto text-center">
+          <p class="text-faded small mb-4">&copy; 2018 Bring a Souvenir, All Rights Reserved, <br>  SASU au capital de 3000€, 101 Avenue du Général Leclerc, 75685 Paris cedex 14, France. </p>
+        </div>
+      </div>
+    </footer>

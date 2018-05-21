@@ -36,7 +36,7 @@ public class Account implements Serializable {
      
     @Column(name = "active", length = 1, nullable = false, columnDefinition = "TINYINT(1)")
     private boolean active;
- 
+    
     @Column(name = "user_role", length = 20, nullable = false)
     private String userRole;
     
