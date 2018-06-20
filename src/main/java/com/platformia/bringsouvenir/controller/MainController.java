@@ -34,6 +34,13 @@ public class MainController {
 	      return "login";
 	   }
 	   
+	   // GET: Show Create Account Page
+	   @RequestMapping(value = { "/admin/createAccount" }, method = RequestMethod.GET)
+	   public String createAccount(Model model) {
+	 
+	      return "createAccount";
+	   }
+	   
 	   // GET: Show Account Info Page
 	   @RequestMapping(value = { "/admin/accountInfo" }, method = RequestMethod.GET)
 	   public String accountInfo(Model model) {

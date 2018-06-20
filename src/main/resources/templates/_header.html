@@ -91,18 +91,18 @@
 			      <th:block sec:authorize="isAuthenticated()">
 						<div class="dropdown-content">
 			                <a href="#" class="dropdown-item small">Welcome 
-			                		<a th:href="@{/admin/accountInfo}" th:utext="${#request.userPrincipal.name}">..</a>
+			                		<a href="/admin/accountInfo" th:utext="${#request.userPrincipal.name}">..</a>
 			         		</a>
 			                <hr>
 			                <a href="#" class="dropdown-item small">Profile</a>
 			                <a href="#" class="dropdown-item small">Settings</a>
-			                <a th:href="@{/admin/logout}" class="dropdown-item small">Logout</a>
+			                <a href="/admin/logout" class="dropdown-item small">Logout</a>
 			              </div>
 			      </th:block>  
 			      <th:block sec:authorize="!isAuthenticated()">
 						<div class="dropdown-content">
 			                <a href="/admin/login" class="dropdown-item small">Login</a>
-			                <a href="#" class="dropdown-item small">Register</a>
+			                <a href="/admin/createAccount" class="dropdown-item small">Create Account</a>
 			              </div>
 			      </th:block>              
               

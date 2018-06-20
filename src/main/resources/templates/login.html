@@ -31,7 +31,7 @@
             th:action="@{/j_spring_security_check}">
                    
               <div class="form-group">
-			    <input type="email" name="userName" class="form-control" aria-describedby="emailHelp" placeholder="Email address">
+			    <input type="email" name="userName" class="form-control" placeholder="Email address">
 			  </div>
 			  <div class="form-group">
 			    <input type="password" name="password" class="form-control" placeholder="Password">
@@ -43,6 +43,11 @@
          </form>
           
          <span class="error-message" th:utext="${error}"></span>
+         
+         <hr>
+         
+         or, <a href="/admin/createAccount">Create a new account</a>
+         
       </div>
 
 	</section>
